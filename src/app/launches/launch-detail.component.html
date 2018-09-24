@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="well">
+            <h2>{{launch.mission.title}}</h2>
+            <img class="img-responsive center-block" src="{{launch.imageUrl}}" />
+            <div>Built by: {{launch.rocket.architect}}</div>
+            <div>Mission time: {{launch.flightTimeSeconds}}s</div>
+            <div *ngIf="launch.mission.notes">
+                <h3>Mission Notes</h3>
+                <div>{{launch.mission.notes}}</div>
+            </div>
+        </div>
+        <button class="btn btn-default" (click)="showSpinner = true" [routerLink]="['/launches']"><i *ngIf="showSpinner" class="fa fa-spinner fa-spin"></i><span *ngIf="!showSpinner">Back</span></button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="well launch-list-item" [routerLink]="['/launches', launch.id]">
+    <h2>{{launch.mission.title}} <i *ngFor="let i of countOfVotes()" class="fa fa-star"></i></h2>
+
+    <img class="img-responsive center-block" src="{{launch.imageUrl}}" />
+    <span>Built by: {{launch.rocket.architect}} | Mission time: {{launch.flightTimeSeconds}}s <i *ngFor="let i of getFlightTimeIcon()"
+            class="fa fa-clock-o"></i></span>
+    <h3 *ngIf="launch.mission.notes" data-toggle="collapse" [attr.data-target]="'.notes-' + i">Mission Notes</h3>
+    <div class="collapse notes-{{i}}">{{launch.mission.notes}}</div>
+    <div>Votes: {{totalVotes}}</div>
+    <button class="btn btn-success" (click)="vote()">Vote</button>
+</div>
